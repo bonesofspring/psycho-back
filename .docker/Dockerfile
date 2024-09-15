@@ -1,11 +1,12 @@
 FROM node:current-alpine3.19
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
 RUN yarn
 
 COPY . .
 
-CMD [ "yarn start" ]
+CMD [ "yarn", "start:dev" ]
